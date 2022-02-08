@@ -23,8 +23,13 @@ Route::post('/createCategory', '\App\Http\Controllers\CategoryController@createM
 Route::put('/updateCategory/{id}', '\App\Http\Controllers\CategoryController@updateModel');
 Route::delete('/deleteCategoryById/{id}', '\App\Http\Controllers\CategoryController@deleteById');
 
-
 Route::get('/getAllProduct', '\App\Http\Controllers\ProductController@getAll');
+Route::get('/getProductsByCategory/{productType}', '\App\Http\Controllers\ProductController@getByName');
 Route::post('/createProduct', '\App\Http\Controllers\ProductController@createModel');
 Route::put('/updateProduct/{id}', '\App\Http\Controllers\ProductController@updateModel');
 Route::delete('/deleteProductById/{id}', '\App\Http\Controllers\ProductController@deleteById');
+
+Route::get('/getAllBooking', '\App\Http\Controllers\BookingController@getAll');
+Route::post('/createBooking', '\App\Http\Controllers\BookingController@createModel');
+Route::put('/updateBooking/{id}', '\App\Http\Controllers\BookingController@updateModel');
+Route::delete('/deleteBookingById/{id}', '\App\Http\Controllers\BookingController@deleteById');
