@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Booking extends Model
 {
     use HasFactory;
-//   protected $table = 'booking';
+    protected $fillable = ["product_id", "start_date", "end_date", "status", "user_id"];
 }

@@ -6,30 +6,22 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateBookingTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('booking', function (Blueprint $table) {
             $table->id();
-            $table->integer('productId')->nullable();
-            $table->foreign('productId')
+            $table->integer('product_id')->nullable();
+            $table->foreign('product_id')
                 ->references('id')->on('product')->onDelete('cascade');
 
-            $table->date('startDate');
-            $table->date('endDate')->nullable();
+            $table->string('user_id')->nullable();
+            $table->date('start_date');
+            $table->date('end_date')->nullable();
+            $table->string('status')->nullable();
 
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('booking');

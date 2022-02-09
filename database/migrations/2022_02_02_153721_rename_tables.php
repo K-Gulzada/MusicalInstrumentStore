@@ -15,7 +15,7 @@ class RenameTables extends Migration
     {
         Schema::rename('product', "products");
         Schema::rename('category', "categories");
-        Schema::rename('booking__user', "booking__users");
+        Schema::rename('booking', "bookings");
         //
     }
 
@@ -29,6 +29,6 @@ class RenameTables extends Migration
         //
         Schema::rename('products', "product");
         Schema::rename('categories', "category");
-        Schema::rename('booking__users', "booking__user");
+        Schema::rename('bookings', "booking");
     }
 }
