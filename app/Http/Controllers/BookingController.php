@@ -9,37 +9,31 @@ use Nette\Utils\DateTime;
 
 class BookingController extends Controller
 {
-    public function getAll()
+    public function get()
     {
-        return response()->json(Booking::all());
+        $booking = Booking::paginate(1);
+        return response()->json($booking);
     }
 
-    public function createModel(Request $request)
+    public function create(Request $request)
     {
         $input = $request->validate([
             'product_id' => 'required|int',
         ]);
 
-        // startDate - DateTime.Now()
-        // endDate - DateTime.Now() + 7days
-        // status - default (Not Paid)
-        // user_id - get signed in UserID
-
         $input['start_date'] = Carbon::now()->format('Y-m-d'); // в формате "2021-06-25 14:06:16"
-
         $input['end_date'] = Carbon::parse($input['start_date'])->addDays(7)->format('Y-m-d'); // автоматом устанавливается +7 дней
-
-        $input['status'] = "Not Paid";
+        $input['status_id'] = 1; // "Not Paid";
         //$input->user_id = get_current_user(); // получить юзера который щяс зареган и пытается забронировать
         $input['user_id'] = "TMP User ID";
-        dd($input);
+        //dd($input);
         $booking = Booking::create($input);
         $booking->save();
 
         return response()->json($booking);
     }
 
-    public function updateModel(Request $request, $id)
+    public function update(Request $request, $id)
     {
         $data = $request->json()->all();
         $product_id = $data['product_id'];
@@ -54,7 +48,7 @@ class BookingController extends Controller
         return response()->json($updateBooking);
     }
 
-    public function deleteById($id)
+    public function delete($id)
     {
         $booking = Booking::findOrFail($id);
         $booking->delete();
@@ -68,3 +62,15 @@ class BookingController extends Controller
 
 
 // статус (оплачен/неоплачен) в Booking
+
+// todo ФУНКЦИОНАЛ для ЮЗЕРА
+
+// todo 1) Юзер может посмотреть все товары (+GetAllProducts)
+// todo 2) Фильтрация по категории (+getProductsByCategory)
+// todo 2) Фильтрация по ценам (+filterByPrice) (типа от 20К до 60К) (нужно создать два инпута типа number, они будут 2 параметрами метода)
+// todo 3) Order By Price (+orderByPriceAsc)
+// todo 4) при нажатии на кнопку "забронировать" создается строка на таблице Booking
+// todo 5) +пагинация товаров
+// todo 6) поиск по названию продукта (+getByProductName)
+// todo 7)
+

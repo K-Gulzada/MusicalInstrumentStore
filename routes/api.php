@@ -18,18 +18,30 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/getAllCategory', '\App\Http\Controllers\CategoryController@getAll');
-Route::post('/createCategory', '\App\Http\Controllers\CategoryController@createModel');
-Route::put('/updateCategory/{id}', '\App\Http\Controllers\CategoryController@updateModel');
-Route::delete('/deleteCategoryById/{id}', '\App\Http\Controllers\CategoryController@deleteById');
+Route::get('/getAllCategory', '\App\Http\Controllers\CategoryController@get');
+Route::post('/createCategory', '\App\Http\Controllers\CategoryController@create');
+Route::put('/updateCategory/{id}', '\App\Http\Controllers\CategoryController@update');
+Route::delete('/deleteCategoryById/{id}', '\App\Http\Controllers\CategoryController@delete');
 
-Route::get('/getAllProduct', '\App\Http\Controllers\ProductController@getAll');
-Route::get('/getProductsByCategory/{productType}', '\App\Http\Controllers\ProductController@getByName');
-Route::post('/createProduct', '\App\Http\Controllers\ProductController@createModel');
-Route::put('/updateProduct/{id}', '\App\Http\Controllers\ProductController@updateModel');
-Route::delete('/deleteProductById/{id}', '\App\Http\Controllers\ProductController@deleteById');
+Route::get('/getAllProduct', '\App\Http\Controllers\ProductController@get');
+Route::get('/getProductsByCategory/{productType}', '\App\Http\Controllers\ProductController@getByCategory');
+Route::get('/getByProductName/{$productName}', '\App\Http\Controllers\ProductController@getOne');
+Route::post('/createProduct', '\App\Http\Controllers\ProductController@create');
+Route::put('/updateProduct/{id}', '\App\Http\Controllers\ProductController@update');
+Route::delete('/deleteProductById/{id}', '\App\Http\Controllers\ProductController@delete');
+Route::get('/orderByPrice', '\App\Http\Controllers\ProductController@filter');
+Route::get('/filterByPrice/{fromPrice}/{toPrice}', '\App\Http\Controllers\ProductController@filterByPrice');
 
-Route::get('/getAllBooking', '\App\Http\Controllers\BookingController@getAll');
-Route::post('/createBooking', '\App\Http\Controllers\BookingController@createModel');
-Route::put('/updateBooking/{id}', '\App\Http\Controllers\BookingController@updateModel');
-Route::delete('/deleteBookingById/{id}', '\App\Http\Controllers\BookingController@deleteById');
+Route::get('/getAllBooking', '\App\Http\Controllers\BookingController@get');
+Route::post('/createBooking', '\App\Http\Controllers\BookingController@create');
+Route::put('/updateBooking/{id}', '\App\Http\Controllers\BookingController@update');
+Route::delete('/deleteBookingById/{id}', '\App\Http\Controllers\BookingController@delete');
+
+Route::get('/getAllStatus', '\App\Http\Controllers\StatusController@get');
+Route::post('/createStatus', '\App\Http\Controllers\StatusController@create');
+Route::delete('/deleteStatusById/{id}', '\App\Http\Controllers\StatusController@delete');
+
+
+Route::get('/getAllStatus', '\App\Http\Controllers\DeliveryController@get');
+Route::post('/createStatus', '\App\Http\Controllers\DeliveryController@create');
+Route::delete('/deleteStatusById/{id}', '\App\Http\Controllers\DeliveryController@delete');
