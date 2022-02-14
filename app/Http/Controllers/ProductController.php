@@ -7,14 +7,14 @@ use App\Models\product;
 use Illuminate\Http\Request;
 use Validator;
 
-class ProductController extends Controller
+class ProductController extends CommonController
 {
-    public function get()
+   /* public function get()
     {
         $products = Product::paginate(1);
         return response()->json($products);
         //return response()->json(Product::all());
-    }
+    }*/
 
     public function getByCategory($productType)
     {
@@ -27,7 +27,7 @@ class ProductController extends Controller
         return response()->json(Product::where('product_name', $productName))->get();
     }
 
-    public function create(Request $request)
+   /* public function create(Request $request)
     {
         $input = $request->validate([
             'category_id' => 'required|int',
@@ -36,13 +36,13 @@ class ProductController extends Controller
             'price' => 'required|numeric|between:0,999999.99',
             'img_path' => 'string'
         ]);
-        
+
         $product=Product::create($input);
         $product->save();
 
         return response()->json($product);
         //return response()->json("New Object successfully created");
-    }
+    }*/
 
     public function update(Request $request , $id)
     {
@@ -63,12 +63,12 @@ class ProductController extends Controller
         return response()->json($product);
     }
 
-    public function delete($id)
+    /*public function delete($id)
     {
         $product = Product::findOrFail($id);
         $product->delete();
         return response()->json("data has been deleted");
-    }
+    }*/
 
     public function filter($fromPrice, $toPrice)
     {
@@ -84,4 +84,8 @@ class ProductController extends Controller
         // Product::all()->sortBy("name"); | Product::all()->sortByDesc("name");
         return response()->json(Product::all()->whereBetween('price', [$fromPrice, $toPrice]));
     }*/
+    protected function getClass()
+    {
+        return app(Product::class);
+    }
 }

@@ -6,25 +6,25 @@ use App\Models\Delivery;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
-class DeliveryController extends Controller
+class DeliveryController extends CommonController
 {
-    public function get()
+   /* public function get()
     {
         $delivery = Delivery::paginate(1);
         return response()->json($delivery);
-    }
+    }*/
 
-    public function create(Request $request)
+  /*  public function create(Request $request)
     {
         // для Postman Price отправим вручную
         // на фронте юзер из селекта выбирает город или область
-        // соответственно rice устанавливается либо 0, либо 1600тг
+        // соответственно Price устанавливается либо 0, либо 1600тг
 
-  /*  // когда фронт будет готов
-         $input = $request->validate([
-         'address' => 'required|string',
-         'phone_number' => 'required|string'
-     ]);*/
+    //// когда фронт будет готов
+     //    $input = $request->validate([
+     //    'address' => 'required|string',
+     //    'phone_number' => 'required|string'
+   //  ]);
 
         $data = $request->validate([
             'address' => 'required|string',
@@ -40,12 +40,17 @@ class DeliveryController extends Controller
         $status->save();
 
         return response()->json($status);
-    }
+    }*/
 
-    public function delete($id)
+  /*  public function delete($id)
     {
         $status = Delivery::findOrFail($id);
         $status->delete();
         return response()->json("data has been deleted");
+    }*/
+
+    protected function getClass()
+    {
+        return app(Delivery::class);
     }
 }

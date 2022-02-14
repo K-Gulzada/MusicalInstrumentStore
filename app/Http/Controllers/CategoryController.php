@@ -7,20 +7,20 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 
 
-class CategoryController extends Controller
+class CategoryController extends CommonController
 {
  /*   public function get()
     {
         return response()->json(Category::all());
     }*/
 
-    public function get()
+   /* public function get()
     {
         $categories = Category::orderBy('id', 'desc')->paginate(10);
         return response()->json($categories);
-    }
+    }*/
 
-    public function create(Request $request)
+    /*public function create(Request $request)
     {
         $data = $request->validate([
             'productType' => 'required|string',
@@ -31,7 +31,7 @@ class CategoryController extends Controller
         $category->save();
 
         return response()->json($category);
-    }
+    }*/
 
     public function update(Request $request , $id)
     {
@@ -46,10 +46,15 @@ class CategoryController extends Controller
         return response()->json($category);
     }
 
-    public function delete($id)
+   /* public function delete($id)
     {
         $category = Category::findOrFail($id);
         $category->delete();
         return response()->json("data has been deleted");
+    }*/
+
+    protected function getClass()
+    {
+        return app(Category::class);
     }
 }

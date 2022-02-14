@@ -9,13 +9,13 @@ use Illuminate\Http\Request;
 
 class StatusController extends CommonController
 {
-    public function get()
+   /* public function get()
     {
         $status = Status::paginate(1);
         return response()->json($status);
-    }
+    }*/
 
-    public function create(Request $request)
+    /*public function create(Request $request)
     {
         $data = $request->validate([
             'status_text' => 'required|string',
@@ -25,17 +25,18 @@ class StatusController extends CommonController
         $status->save();
 
         return response()->json($status);
-    }
+    }*/
 
-    public function delete($id)
+
+    /*public function delete($id)
     {
         $status = Status::findOrFail($id);
         $status->delete();
         return response()->json("data has been deleted");
-    }
+    }*/
 
     protected function getClass()
     {
-       return Status::class;
+        return app(Status::class);
     }
 }

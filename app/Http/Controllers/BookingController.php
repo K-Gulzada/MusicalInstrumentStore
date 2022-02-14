@@ -7,15 +7,15 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Nette\Utils\DateTime;
 
-class BookingController extends Controller
+class BookingController extends CommonController
 {
-    public function get()
-    {
-        $booking = Booking::paginate(1);
-        return response()->json($booking);
-    }
+    /* public function get()
+     {
+         $booking = Booking::paginate(1);
+         return response()->json($booking);
+     }*/
 
-    public function create(Request $request)
+    /*public function create(Request $request)
     {
         $input = $request->validate([
             'product_id' => 'required|int',
@@ -31,7 +31,7 @@ class BookingController extends Controller
         $booking->save();
 
         return response()->json($booking);
-    }
+    }*/
 
     public function update(Request $request, $id)
     {
@@ -40,19 +40,24 @@ class BookingController extends Controller
         $start_date = $data['start_date'];
         $end_date = $data['end_date'];
 
-        $updateBooking = Booking::findOrFail($id);
-        $updateBooking->product_id = $product_id;
-        $updateBooking->start_date = $start_date;
-        $updateBooking->end_date = $end_date;
-        $updateBooking->save();
-        return response()->json($updateBooking);
+        $booking = Booking::findOrFail($id);
+        $booking->product_id = $product_id;
+        $booking->start_date = $start_date;
+        $booking->end_date = $end_date;
+        $booking->save();
+        return response()->json($booking);
     }
 
-    public function delete($id)
+   /* public function delete($id)
     {
         $booking = Booking::findOrFail($id);
         $booking->delete();
         return response()->json("data has been deleted");
+    }*/
+
+    protected function getClass()
+    {
+        return app(Booking::class);
     }
 }
 

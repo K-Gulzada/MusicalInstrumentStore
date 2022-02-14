@@ -29,7 +29,7 @@ Route::get('/getByProductName/{$productName}', '\App\Http\Controllers\ProductCon
 Route::post('/createProduct', '\App\Http\Controllers\ProductController@create');
 Route::put('/updateProduct/{id}', '\App\Http\Controllers\ProductController@update');
 Route::delete('/deleteProductById/{id}', '\App\Http\Controllers\ProductController@delete');
-Route::get('/orderByPrice', '\App\Http\Controllers\ProductController@filter');
+Route::get('/orderByPrice/{fromPrice}/{toPrice}', '\App\Http\Controllers\ProductController@filter');
 Route::get('/filterByPrice/{fromPrice}/{toPrice}', '\App\Http\Controllers\ProductController@filterByPrice');
 
 Route::get('/getAllBooking', '\App\Http\Controllers\BookingController@get');
@@ -45,3 +45,4 @@ Route::delete('/deleteStatusById/{id}', '\App\Http\Controllers\StatusController@
 Route::get('/getAllStatus', '\App\Http\Controllers\DeliveryController@get');
 Route::post('/createStatus', '\App\Http\Controllers\DeliveryController@create');
 Route::delete('/deleteStatusById/{id}', '\App\Http\Controllers\DeliveryController@delete');
+
