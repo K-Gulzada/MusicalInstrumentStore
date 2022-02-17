@@ -45,7 +45,7 @@ class BookingController extends CommonController
         $booking->start_date = $start_date;
         $booking->end_date = $end_date;
         $booking->save();
-        return response()->json($booking);
+        return response()->json($booking, 203);
     }
 
    /* public function delete($id)

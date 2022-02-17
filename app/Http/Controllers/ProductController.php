@@ -24,7 +24,7 @@ class ProductController extends CommonController
 
     public function getOne($productName)
     {
-        return response()->json(Product::where('product_name', $productName))->get();
+        return response()->json(Product::where('product_name', $productName)->first());
     }
 
    /* public function create(Request $request)
@@ -60,7 +60,7 @@ class ProductController extends CommonController
         $product->price =$price;
         $product->img_path =$img_path;
         $product->save();
-        return response()->json($product);
+        return response()->json($product, 203);
     }
 
     /*public function delete($id)

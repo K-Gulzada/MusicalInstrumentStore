@@ -25,7 +25,7 @@ Route::delete('/deleteCategoryById/{id}', '\App\Http\Controllers\CategoryControl
 
 Route::get('/getAllProduct', '\App\Http\Controllers\ProductController@get');
 Route::get('/getProductsByCategory/{productType}', '\App\Http\Controllers\ProductController@getByCategory');
-Route::get('/getByProductName/{$productName}', '\App\Http\Controllers\ProductController@getOne');
+Route::get('/getByProductName/{productName}', '\App\Http\Controllers\ProductController@getOne');
 Route::post('/createProduct', '\App\Http\Controllers\ProductController@create');
 Route::put('/updateProduct/{id}', '\App\Http\Controllers\ProductController@update');
 Route::delete('/deleteProductById/{id}', '\App\Http\Controllers\ProductController@delete');
@@ -42,7 +42,7 @@ Route::post('/createStatus', '\App\Http\Controllers\StatusController@create');
 Route::delete('/deleteStatusById/{id}', '\App\Http\Controllers\StatusController@delete');
 
 
-Route::get('/getAllStatus', '\App\Http\Controllers\DeliveryController@get');
-Route::post('/createStatus', '\App\Http\Controllers\DeliveryController@create');
-Route::delete('/deleteStatusById/{id}', '\App\Http\Controllers\DeliveryController@delete');
+Route::get('/getAllDelivery', '\App\Http\Controllers\DeliveryController@get');
+Route::post('/createDelivery', '\App\Http\Controllers\DeliveryController@create');
+Route::delete('/deleteDeliveryById/{id}', '\App\Http\Controllers\DeliveryController@delete');
 

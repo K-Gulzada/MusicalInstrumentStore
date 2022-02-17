@@ -43,7 +43,7 @@ class CategoryController extends CommonController
         $category->productType =$productType;
         $category->description =$description;
         $category->save();
-        return response()->json($category);
+        return response()->json($category, 203);
     }
 
    /* public function delete($id)

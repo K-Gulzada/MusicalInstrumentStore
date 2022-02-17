@@ -20,13 +20,13 @@ abstract class CommonController extends Controller
     {
         $newObject = $this->getClass()::create($this->getClass()->myValidator($request));
         $newObject->save();
-        return response()->json($newObject);
+        return response()->json($newObject, 201);
     }
 
     public function delete($id)
     {
         $data = $this->getClass()::findOrFail($id);
         $data->delete();
-        return response()->json("data has been deleted");
+        return response()->json("data has been deleted", 204);
     }
 }
