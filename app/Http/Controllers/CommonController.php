@@ -4,16 +4,42 @@ namespace App\Http\Controllers;
 
 use App\Models\Booking;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 
 abstract class CommonController extends Controller
 {
     abstract protected function getClass();
 
-    public function get()
+    /* public function get()
+     {
+         //   return response()->json($this->getClass()::paginate(1));
+         return response()->json($this->getClass()::all());
+     }*/
+
+    public function get(Request $request)
     {
-     //   return response()->json($this->getClass()::paginate(1));
-        return response()->json($this->getClass()::all());
+        //   return response()->json($this->getClass()::paginate(1));
+        // dd($request->input(['product_name']));
+        // dd($request->input());
+
+        if (!empty($request->input())) {
+            $item = collect();
+            foreach ($request->input() as $key => $value) {
+                //  dd( "Key: ". $key . " |  VALUE: ". $value);
+
+                $item->push($this->getClass()::where($key, 'like', '%'.$value.'%')->get());
+            }
+
+           return response()->json($item);
+
+        } else {
+            //return response()->json($this->getClass()::paginate(1));
+            return response()->json($this->getClass()::all());
+        }
+
+
+        //response()->json($this->getClass()::where($key, $value)->get());
     }
 
     public function create(Request $request)

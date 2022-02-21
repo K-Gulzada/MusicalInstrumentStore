@@ -12,8 +12,6 @@ class ProductTest extends TestCase
         $data = Product::all()->random(1)->first();
 
         $this->assertTrue(array_key_exists('product_name', $data->toArray()));
-        /* $this->assertTrue($basket->has('description'));
-         $this->assertFalse($basket->has('Just first Some text'));
-         $this->assertFalse($basket->has('Just second Some text'));*/
+        $this->assertFalse(array_key_exists('name', $data->toArray()));
     }
 }

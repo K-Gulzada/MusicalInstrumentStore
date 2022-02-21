@@ -46,3 +46,5 @@ Route::get('/getAllDelivery', '\App\Http\Controllers\DeliveryController@get');
 Route::post('/createDelivery', '\App\Http\Controllers\DeliveryController@create');
 Route::delete('/deleteDeliveryById/{id}', '\App\Http\Controllers\DeliveryController@delete');
 
+
+
