@@ -24,22 +24,19 @@ abstract class CommonController extends Controller
         // dd($request->input());
 
         if (!empty($request->input())) {
-            $item = collect();
+            $list = $this->getClass();
             foreach ($request->input() as $key => $value) {
                 //  dd( "Key: ". $key . " |  VALUE: ". $value);
-
-                $item->push($this->getClass()::where($key, 'like', '%'.$value.'%')->get());
+                $list = $list->where($key, 'like', '%'.$value.'%');
             }
 
-           return response()->json($item);
+            return response()->json($list->get());
 
         } else {
             //return response()->json($this->getClass()::paginate(1));
             return response()->json($this->getClass()::all());
         }
 
-
-        //response()->json($this->getClass()::where($key, $value)->get());
     }
 
     public function create(Request $request)
@@ -56,3 +53,7 @@ abstract class CommonController extends Controller
         return response()->json("data has been deleted", 204);
     }
 }
+
+// data all
+// filter data
+//

@@ -15,3 +15,7 @@ class ProductTest extends TestCase
         $this->assertFalse(array_key_exists('name', $data->toArray()));
     }
 }
+
+// discount (id, процент, product_id, start_date, end_date)
+// brand (id, name, description)
+// favorites (id, user_id, product_id)
