@@ -18,33 +18,60 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/getAllCategory', '\App\Http\Controllers\CategoryController@get');
-Route::post('/createCategory', '\App\Http\Controllers\CategoryController@create');
-Route::put('/updateCategory/{id}', '\App\Http\Controllers\CategoryController@update');
-Route::delete('/deleteCategoryById/{id}', '\App\Http\Controllers\CategoryController@delete');
+Route::group(['prefix' => '/category'], function () {
+    Route::get('/', '\App\Http\Controllers\CategoryController@get');
+    Route::post('/', '\App\Http\Controllers\CategoryController@create');
+    Route::put('/{id}', '\App\Http\Controllers\CategoryController@update');
+    Route::delete('/{id}', '\App\Http\Controllers\CategoryController@delete');
+});
 
-Route::get('/getAllProduct', '\App\Http\Controllers\ProductController@get');
-Route::get('/getProductsByCategory/{productType}', '\App\Http\Controllers\ProductController@getByCategory');
-Route::get('/getByProductName/{productName}', '\App\Http\Controllers\ProductController@getOne');
-Route::post('/createProduct', '\App\Http\Controllers\ProductController@create');
-Route::put('/updateProduct/{id}', '\App\Http\Controllers\ProductController@update');
-Route::delete('/deleteProductById/{id}', '\App\Http\Controllers\ProductController@delete');
-Route::get('/orderByPrice/{fromPrice}/{toPrice}', '\App\Http\Controllers\ProductController@filter');
-Route::get('/filterByPrice/{fromPrice}/{toPrice}', '\App\Http\Controllers\ProductController@filterByPrice');
+Route::group(['prefix' => '/product'], function () {
+    Route::get('/', '\App\Http\Controllers\ProductController@get');
+    Route::post('/', '\App\Http\Controllers\ProductController@create');
+    Route::put('/{id}', '\App\Http\Controllers\ProductController@update');
+    Route::delete('/{id}', '\App\Http\Controllers\ProductController@delete');
+});
 
-Route::get('/getAllBooking', '\App\Http\Controllers\BookingController@get');
-Route::post('/createBooking', '\App\Http\Controllers\BookingController@create');
-Route::put('/updateBooking/{id}', '\App\Http\Controllers\BookingController@update');
-Route::delete('/deleteBookingById/{id}', '\App\Http\Controllers\BookingController@delete');
+Route::group(['prefix' => '/booking'], function () {
+    Route::get('/', '\App\Http\Controllers\BookingController@get');
+    Route::post('/', '\App\Http\Controllers\BookingController@create');
+    Route::put('/{id}', '\App\Http\Controllers\BookingController@update');
+    Route::delete('/{id}', '\App\Http\Controllers\BookingController@delete');
+});
 
-Route::get('/getAllStatus', '\App\Http\Controllers\StatusController@get');
-Route::post('/createStatus', '\App\Http\Controllers\StatusController@create');
-Route::delete('/deleteStatusById/{id}', '\App\Http\Controllers\StatusController@delete');
+Route::group(['prefix' => '/status'], function () {
+    Route::get('/', '\App\Http\Controllers\StatusController@get');
+    Route::post('/', '\App\Http\Controllers\StatusController@create');
+    Route::delete('/{id}', '\App\Http\Controllers\StatusController@delete');
+});
+
+Route::group(['prefix' => '/delivery'], function () {
+    Route::get('/', '\App\Http\Controllers\DeliveryController@get');
+    Route::post('/', '\App\Http\Controllers\DeliveryController@create');
+    Route::delete('/{id}', '\App\Http\Controllers\DeliveryController@delete');
+});
+
+Route::group(['prefix' => '/brand'], function () {
+    Route::get('/', '\App\Http\Controllers\BrandController@get');
+    Route::post('/', '\App\Http\Controllers\BrandController@create');
+    Route::delete('/{id}', '\App\Http\Controllers\BrandController@delete');
+});
+
+Route::group(['prefix' => '/favorite'], function () {
+    Route::get('/', '\App\Http\Controllers\FavoriteController@get');
+    Route::post('/', '\App\Http\Controllers\FavoriteController@create');
+    Route::delete('/{id}', '\App\Http\Controllers\FavoriteController@delete');
+});
+
+Route::group(['prefix' => '/discount'], function () {
+    Route::get('/', '\App\Http\Controllers\DiscountController@get');
+    Route::post('/', '\App\Http\Controllers\DiscountController@create');
+    Route::delete('/{id}', '\App\Http\Controllers\DiscountController@delete');
+});
 
 
-Route::get('/getAllDelivery', '\App\Http\Controllers\DeliveryController@get');
-Route::post('/createDelivery', '\App\Http\Controllers\DeliveryController@create');
-Route::delete('/deleteDeliveryById/{id}', '\App\Http\Controllers\DeliveryController@delete');
+
+
 
 
 

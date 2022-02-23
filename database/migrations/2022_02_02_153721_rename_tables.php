@@ -6,11 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 class RenameTables extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::rename('product', "products");
@@ -19,11 +14,6 @@ class RenameTables extends Migration
         //
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         //

@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use App\Models\Booking;
 use App\Models\Brand;
 use App\Models\Category;
-use App\Models\Discont;
+use App\Models\Discount;
 use App\Models\Favorite;
 use App\Models\Product;
 use App\Models\Status;
@@ -22,6 +22,6 @@ class DatabaseSeeder extends Seeder
 
         Brand::factory()->count(5)->create();
         Favorite::factory()->count(5)->create();
-        Discont::factory()->count(5)->create();
+        Discount::factory()->count(5)->create();
     }
 }

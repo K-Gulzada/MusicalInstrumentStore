@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Favorite;
+use App\Models\Discount;
 use Illuminate\Http\Request;
 
-class FavoriteController extends CommonController
+class DiscountController extends CommonController
 {
 
     protected function getClass()
     {
-        return app(Favorite::class);
+        return app(Discount::class);
     }
 }

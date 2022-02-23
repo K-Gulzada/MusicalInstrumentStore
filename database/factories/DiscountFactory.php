@@ -5,7 +5,7 @@ namespace Database\Factories;
 use App\Models\Product;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class DiscontFactory extends Factory
+class DiscountFactory extends Factory
 {
     public function definition()
     {

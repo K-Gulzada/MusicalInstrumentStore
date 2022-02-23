@@ -8,7 +8,7 @@ class CreateDiscontsTable extends Migration
 {
     public function up()
     {
-        Schema::create('disconts', function (Blueprint $table) {
+        Schema::create('discounts', function (Blueprint $table) {
             $table->id();
             $table->integer('percent');
             $table->integer('product_id');
@@ -21,6 +21,6 @@ class CreateDiscontsTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('disconts');
+        Schema::dropIfExists('discounts');
     }
 }
