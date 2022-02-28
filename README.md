@@ -22,14 +22,14 @@ php artisan serve
 Другие контроллеры содержат методы уникальные для каждой модели.
 
 ## Функционал
-- Product (Create, Read, Update, Delete)
-- Category (Create, Read, Update, Delete)
-- Brand (Create, Read, Update, Delete)
-- Booking (Create, Read, Update, Delete)
-- Favorite (Create, Read, Update, Delete)
-- Status (Create, Read, Update, Delete)
-- Discount (Create, Read, Update, Delete)
-- Delivery (Create, Read, Update, Delete)
+- **Product** (Create, Read, Update, Delete)
+- **Category** (Create, Read, Update, Delete)
+- **Brand** (Create, Read, Update, Delete)
+- **Booking** (Create, Read, Update, Delete)
+- **Favorite** (Create, Read, Update, Delete)
+- **Status** (Create, Read, Update, Delete)
+- **Discount** (Create, Read, Update, Delete)
+- **Delivery** (Create, Read, Update, Delete)
 
 ## Route
 Для выполнения разного рода операции нужно обращаться по правильному route-у. 
