@@ -7,13 +7,31 @@ use Tests\TestCase;
 
 class StatusTest extends TestCase
 {
-    public function test_example()
+    public function test_fieldExists()
     {
         $data = Status::all()->random(1)->first();
-
         $this->assertTrue(array_key_exists('status_text', $data->toArray()));
-         $this->assertFalse(array_key_exists('description', $data->toArray()));
-        /*$this->assertFalse($basket->has('Just first Some text'));
-        $this->assertFalse($basket->has('Just second Some text'));*/
+    }
+
+    public function test_fieldNotExists()
+    {
+        $data = Status::all()->random(1)->first();
+        $this->assertFalse(array_key_exists('description', $data->toArray()));
+    }
+
+    public function test_fieldsEqual()
+    {
+        $data = "test Status Text";
+        $status = new Status(
+            [
+                "status_text"=>"test Status Text"
+            ]);
+        $this->assertEquals($data, $status['status_text']);
+    }
+
+    public function test_fieldNull()
+    {
+        $status = new Status();
+        $this->assertNull($status['id']);
     }
 }

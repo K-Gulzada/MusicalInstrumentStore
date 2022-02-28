@@ -8,6 +8,7 @@ use Tests\TestCase;
 
 class BrandTest extends TestCase
 {
+    /*
     static public $id;
 
     public function test_get()
@@ -67,4 +68,5 @@ class BrandTest extends TestCase
 
         $response->assertStatus(204);
     }
+    */
 }

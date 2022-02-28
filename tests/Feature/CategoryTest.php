@@ -8,6 +8,7 @@ use Tests\TestCase;
 
 class CategoryTest extends TestCase
 {
+    /*
     use withFaker;
 
     static public $id;
@@ -76,4 +77,5 @@ class CategoryTest extends TestCase
 
         $response->assertStatus(204);
     }
+    */
 }

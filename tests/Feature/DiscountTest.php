@@ -9,6 +9,7 @@ use Tests\TestCase;
 
 class DiscountTest extends TestCase
 {
+    /*
     static public $id;
 
     public function test_get()
@@ -71,4 +72,5 @@ class DiscountTest extends TestCase
 
         $response->assertStatus(204);
     }
+    */
 }

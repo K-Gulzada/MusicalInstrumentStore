@@ -9,6 +9,7 @@ use Tests\TestCase;
 
 class ProductTest extends TestCase
 {
+    /*
     static public $id;
 
     public function test_get()
@@ -96,5 +97,6 @@ class ProductTest extends TestCase
 
         $response->assertStatus(204);
     }
+    */
 
 }

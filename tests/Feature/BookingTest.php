@@ -8,7 +8,7 @@ use Tests\TestCase;
 
 class BookingTest extends TestCase
 {
-    static public $id;
+   /* static public $id;
 
     public function test_get()
     {
@@ -74,5 +74,5 @@ class BookingTest extends TestCase
         $response = $this->json('DELETE', 'http://127.0.0.1:8000/api/booking/' . self::$id);
 
         $response->assertStatus(204);
-    }
+    }*/
 }

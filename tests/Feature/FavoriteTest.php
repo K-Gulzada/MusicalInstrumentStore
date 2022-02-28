@@ -9,6 +9,7 @@ use Tests\TestCase;
 
 class FavoriteTest extends TestCase
 {
+    /*
     static public $id;
 
     public function test_get()
@@ -65,4 +66,5 @@ class FavoriteTest extends TestCase
 
         $response->assertStatus(204);
     }
+    */
 }

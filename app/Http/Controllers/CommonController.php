@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Services\Interfaces\CommonServiceInterface;
 use App\Models\Booking;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -10,6 +11,12 @@ use Illuminate\Support\Str;
 abstract class CommonController extends Controller
 {
     abstract protected function getClass();
+   // protected $service;
+
+    public function __construct(CommonServiceInterface $myservice)
+    {
+        $this->service = $myservice;
+    }
 
     /* public function get()
      {
