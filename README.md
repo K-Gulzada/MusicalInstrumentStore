@@ -84,6 +84,5 @@ php artisan serve
 - При удалении объекта выполняем **DELETE** запрос по route http://127.0.0.1:8000/api/product/{id}, 
 где **id** это айди удаляемого объекта.
 
-## Route Product
+### Для других моделей route-ы описаны в папке postman_collections 
 
-- 
