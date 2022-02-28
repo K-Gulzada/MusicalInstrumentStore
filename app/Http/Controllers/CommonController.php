@@ -13,10 +13,10 @@ abstract class CommonController extends Controller
     abstract protected function getClass();
    // protected $service;
 
-    public function __construct(CommonServiceInterface $myservice)
+   /* public function __construct(CommonServiceInterface $myservice)
     {
         $this->service = $myservice;
-    }
+    }*/
 
     /* public function get()
      {
