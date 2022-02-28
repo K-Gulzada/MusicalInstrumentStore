@@ -32,7 +32,7 @@ php artisan serve
 - **Discount** (Create, Read, Update, Delete)
 - **Delivery** (Create, Read, Update, Delete)
 
-## Route
+## Route Product
 Для выполнения разного рода операции нужно обращаться по правильному route-у. 
 - Для получения всех данных о продуктах отправляем **GET** запрос http://127.0.0.1:8000/api/product.
 Можно запрашиваемый лист данных отфильтровать, отправив в теле запроса параметры. 
@@ -84,3 +84,6 @@ php artisan serve
 - При удалении объекта выполняем **DELETE** запрос по route http://127.0.0.1:8000/api/product/{id}, 
 где **id** это айди удаляемого объекта.
 
+## Route Product
+
+- 
