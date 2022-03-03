@@ -11,12 +11,13 @@ class Product extends Model
 {
     use HasFactory;
 
-    protected $fillable = ["category_id", "product_name", "description", "price", "img_path"];
+    protected $fillable = ["category_id", "brand_id", "product_name", "description", "price", "img_path"];
 
     public function myValidator(Request $request)
     {
         $data = $request->validate([
             'category_id' => 'required|int',
+            'brand_id' => 'required|int',
             'product_name' => 'required|string',
             'description' => 'required|string',
             'price' => 'required|numeric|between:0,999999.99',
@@ -25,3 +26,5 @@ class Product extends Model
         return $data;
     }
 }
+
+

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Services\Interfaces\CommonServiceInterface;
 use App\Models\Booking;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -34,7 +35,7 @@ abstract class CommonController extends Controller
             $list = $this->getClass();
             foreach ($request->input() as $key => $value) {
                 //  dd( "Key: ". $key . " |  VALUE: ". $value);
-                $list = $list->where($key, 'like', '%'.$value.'%');
+                $list = $list->where($key, 'ilike', '%'.$value.'%');
             }
 
             return response()->json($list->get());
@@ -55,12 +56,18 @@ abstract class CommonController extends Controller
 
     public function delete($id)
     {
-        $data = $this->getClass()::findOrFail($id);
+//        $data = $this->getClass()::findOrFail($id);
+        $data = $this->checkIfExists($id);
         $data->delete();
         return response()->json("data has been deleted", 204);
     }
+
+    function checkIfExists($id) {
+        $data = $this->getClass()::findOrFail($id);
+        if ($data ==null) {
+            throw new ModelNotFoundException();
+        }
+        return $data;
+    }
 }
 
-// data all
-// filter data
-//

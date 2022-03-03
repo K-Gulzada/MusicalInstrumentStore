@@ -31,12 +31,3 @@ class Booking extends Model
 
 }
 
-// todo +Category(6)
-// todo +Product(7)
-// todo +Status(5)
-// todo +Booking(6)
-// todo +Brand(5)
-// todo +Favorite(5)
-// todo +Discount(5)
-// todo summary (+39)
-// todo planning (5)
