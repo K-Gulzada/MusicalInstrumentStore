@@ -9,7 +9,7 @@ class StatusFactory extends Factory
     public function definition()
     {
         return [
-            'status_text' => $this->faker->text(10)
+            'status_text' => $this->faker->text(20)
         ];
     }
 }

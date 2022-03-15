@@ -14,16 +14,18 @@ abstract class CommonController extends Controller
     abstract protected function getClass();
    // protected $service;
 
-   /* public function __construct(CommonServiceInterface $myservice)
-    {
-        $this->service = $myservice;
-    }*/
-
     /* public function get()
      {
          //   return response()->json($this->getClass()::paginate(1));
          return response()->json($this->getClass()::all());
      }*/
+
+     public function getById($id)
+     {
+       $data = $this->getClass()::findOrFail($id);
+        
+         return response()->json($data, 200);
+     }
 
     public function get(Request $request)
     {

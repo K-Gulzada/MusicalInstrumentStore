@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Brand;
 use App\Models\Category;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -14,7 +15,8 @@ class ProductFactory extends Factory
             'product_name' => $this->faker->text(15),
             'description' => $this->faker->text(50),
             'price' => $this->faker->buildingNumber(),
-            'img_path' => $this->faker->imageUrl()
+            'img_path' => $this->faker->imageUrl(),
+            'brand_id' => Brand::factory(),
         ];
     }
 }

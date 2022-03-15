@@ -20,8 +20,11 @@ class DatabaseSeeder extends Seeder
          Product::factory()->count(10)->create();
          Booking::factory()->count(10)->create();*/
 
-        Brand::factory()->count(5)->create();
-        Favorite::factory()->count(5)->create();
-        Discount::factory()->count(5)->create();
+        // Brand::factory()->count(5)->create();
+        // Favorite::factory()->count(5)->create();
+        // Discount::factory()->count(5)->create();
+
+        // Booking::factory()->count(10)->create();
+        // Status::factory()->count(3)->create();
     }
 }

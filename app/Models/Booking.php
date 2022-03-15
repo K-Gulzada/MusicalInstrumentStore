@@ -22,7 +22,7 @@ class Booking extends Model
 
         $data['start_date'] = Carbon::now()->format('Y-m-d'); // в формате "2021-06-25 14:06:16"
         $data['end_date'] = Carbon::parse($data['start_date'])->addDays(7)->format('Y-m-d'); // автоматом устанавливается +7 дней
-        $data['status_id'] = 18; // "Not Paid";
+        $data['status_id'] =27; // "Not Paid";
         //$input->user_id = get_current_user(); // получить юзера который щяс зареган и пытается забронировать
         $data['user_id'] = "TMP User ID";
 

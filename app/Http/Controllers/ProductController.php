@@ -52,6 +52,7 @@ class ProductController extends CommonController
         $description = $data['description'];
         $price = $data['price'];
         $img_path = $data['img_path'];
+        $brand_id = $data['brand_id'];
 
         $product = Product::findOrFail($id);
         $product->category_id =$category_id;
@@ -59,6 +60,7 @@ class ProductController extends CommonController
         $product->description =$description;
         $product->price =$price;
         $product->img_path =$img_path;
+        $product->brand_id =$brand_id;
         $product->save();
         return response()->json($product, 203);
     }
