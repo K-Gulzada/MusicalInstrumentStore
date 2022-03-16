@@ -32,6 +32,7 @@ Route::group(['prefix' => '/product'], function () {
     Route::post('/', '\App\Http\Controllers\ProductController@create');
     Route::put('/{id}', '\App\Http\Controllers\ProductController@update');
     Route::delete('/{id}', '\App\Http\Controllers\ProductController@delete');
+    Route::get('/favProd/{user_id}', '\App\Http\Controllers\ProductController@getFavoritePoducts');
 });
 
 Route::group(['prefix' => '/booking'], function () {

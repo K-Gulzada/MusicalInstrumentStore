@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Favorite;
 use App\Models\product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 use Validator;
 
 class ProductController extends CommonController
@@ -65,6 +67,22 @@ class ProductController extends CommonController
         return response()->json($product, 203);
     }
 
+    public function getFavoritePoducts($user_id)
+    {
+        $favs = Favorite::where('user_id', $user_id)->get();    
+
+        if (empty($input)) {
+           $list = array();
+            foreach ($favs as $fav) {                
+                array_push($list,Product::where("id",$fav->product_id)->get());
+            }
+
+            return response()->json($list);
+        }
+
+        return null;
+    }
+
     /*public function delete($id)
     {
         $product = Product::findOrFail($id);
@@ -90,4 +108,6 @@ class ProductController extends CommonController
     {
         return app(Product::class);
     }
+
+
 }
